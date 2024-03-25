@@ -1,11 +1,11 @@
 import "./App.css";
 import Header from "./Header";
-import SearchBar from "./SearchBar";
+import WordLayout from "./WordLayout";
 function App() {
   return (
     <div className="mx-6">
       <Header />
-      <SearchBar />
+      <WordLayout />
     </div>
   );
 }
