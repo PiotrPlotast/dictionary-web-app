@@ -28,7 +28,7 @@ export default function WordLayout() {
   const audio = word[0]?.phonetics[0]?.audio;
 
   return (
-    <div className="mx-6">
+    <div>
       <SearchBar onProps={handlePropsFromSearch} />
       <ActiveWord activeWord={activeWord} spelling={spelling} audio={audio} />
       <WordExplanation word={word} />
