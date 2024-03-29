@@ -28,7 +28,7 @@ export default function WordLayout() {
 
   const activeWord = word[0]?.word;
   const spelling = word[0]?.phonetics[0]?.text;
-  const audio = word[0]?.phonetics[0]?.audio;
+  const audio = word[0]?.phonetics.find((phonetic) => phonetic.audio)?.audio;
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,7 +44,7 @@ export default function WordLayout() {
             spelling={spelling}
             audio={audio}
           />
-          <WordExplanation word={word} />
+          <WordExplanation word={word} setSearchedWord={setSearchedWord} />
         </>
       )}
     </div>
