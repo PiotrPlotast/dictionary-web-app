@@ -1,6 +1,6 @@
 import NewWindowImg from "./assets/images/icon-new-window.svg";
 
-export default function WordExplanation({ word }) {
+export default function WordExplanation({ word, setSearchedWord }) {
   return (
     <div>
       {word[0]?.meanings.map((meaning, index) => {
@@ -16,25 +16,50 @@ export default function WordExplanation({ word }) {
             <ul className="mt-4 list-disc px-4 marker:text-secondaryColor flex flex-col gap-3">
               {meaning.definitions.map((definition, index) => {
                 return (
-                  <>
-                    <li key={index} className="text-[0.94rem]">
-                      <p>{definition.definition}</p>
-                      {definition.example && (
-                        <p className=" text-accentColor text-[0.94rem]">
-                          "{definition.example}"
-                        </p>
-                      )}
-                      {definition.synonyms &&
-                        definition.synonyms.length > 0 && (
-                          <p className="text-secondaryColor text-bodyM">
-                            <span className="font-bold">Synonyms: </span>
-                            {definition.synonyms}
-                          </p>
-                        )}
-                    </li>
-                  </>
+                  <li key={index} className="text-[0.94rem]">
+                    <p>{definition.definition}</p>
+                    {definition.example && (
+                      <p className=" text-accentColor text-[0.94rem] mt-[0.875rem]">
+                        "{definition.example}"
+                      </p>
+                    )}
+                  </li>
                 );
               })}
+              {meaning.synonyms && meaning.synonyms.length > 0 && (
+                <p className=" text-bodyM">
+                  <span className="">Synonyms: </span>
+                  {meaning.synonyms.map((synonym, index) => {
+                    return (
+                      <span
+                        key={index}
+                        className="text-secondaryColor font-bold"
+                        onClick={() => setSearchedWord(synonym)}
+                      >
+                        {synonym}
+                        {index < meaning.synonyms.length - 1 ? ", " : ""}
+                      </span>
+                    );
+                  })}
+                </p>
+              )}
+              {meaning.antonyms && meaning.antonyms.length > 0 && (
+                <p className=" text-bodyM">
+                  <span className="">Antonyms: </span>
+                  {meaning.antonyms.map((synonym, index) => {
+                    return (
+                      <span
+                        key={index}
+                        className="text-secondaryColor font-bold"
+                        onClick={() => setSearchedWord(synonym)}
+                      >
+                        {synonym}
+                        {index < meaning.antonyms.length - 1 ? ", " : ""}
+                      </span>
+                    );
+                  })}
+                </p>
+              )}
             </ul>
           </div>
         );
