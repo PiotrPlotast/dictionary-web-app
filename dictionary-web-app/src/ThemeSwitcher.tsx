@@ -1,39 +1,68 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Switch } from "@headlessui/react";
+import { SunIcon } from "@heroicons/react/24/solid";
+import { useLocalStorage } from "usehooks-ts";
 
-const ThemeSwitcher = () => {
-  const [darkMode, setDarkMode] = useState(false);
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function ThemeSwitch() {
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
-    setDarkMode(isDarkMode);
-  }, []);
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
+  }, [theme]);
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("darkMode", darkMode.toString());
-  }, [darkMode]);
+  const [enabled, setEnabled] = useState(theme == "light");
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => {
-      return !prevMode;
-    });
+  const handleThemeChange = (enabled: boolean) => {
+    setTheme(enabled ? "light" : "dark");
+    setEnabled(enabled);
   };
 
   return (
-    <button onClick={toggleDarkMode}>
-      {darkMode ? (
-        <label className="inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="" className="sr-only peer" />
-          <div className="relative w-11 h-6 bg-wrongInputField peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        </label>
-      ) : (
-        <label className="inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="" className="sr-only peer" />
-          <div className="relative w-11 h-6 bg-secondaryColor peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        </label>
+    <Switch
+      checked={enabled}
+      onChange={handleThemeChange}
+      className={classNames(
+        enabled ? "bg-gray-400" : "bg-yellow-600",
+        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out"
       )}
-    </button>
+    >
+      <span className="sr-only">Use setting</span>
+      <span
+        className={classNames(
+          enabled ? "translate-x-5" : "translate-x-0",
+          "pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+        )}
+      >
+        <span
+          className={classNames(
+            enabled
+              ? "opacity-0 duration-100 ease-out"
+              : "opacity-100 duration-200 ease-in",
+            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+          )}
+          aria-hidden="true"
+        >
+          <SunIcon className="h-3 w-3 text-gray-400" />
+        </span>
+        <span
+          className={classNames(
+            enabled
+              ? "opacity-100 duration-200 ease-in"
+              : "opacity-0 duration-100 ease-out",
+            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+          )}
+          aria-hidden="true"
+        >
+          <SunIcon className="h-3 w-3 text-yellow-600" />
+        </span>
+      </span>
+    </Switch>
   );
-};
+}
 
-export default ThemeSwitcher;
+export default ThemeSwitch;
