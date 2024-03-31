@@ -1,13 +1,14 @@
-export default function FontPicker() {
+export default function FontPicker({ font, setFont }) {
   return (
     <>
       <select
         id="font-picker"
-        className="dark:bg-darkThemeBgColor dark:text-darkThemeTextColor"
+        className={`dark:bg-darkThemeBgColor dark:text-darkThemeTextColor font-${font}`}
+        onChange={(e) => setFont(e.target.value)}
       >
-        <option value="SansSerif">Sans Serif</option>
-        <option value="Serif">Serif</option>
-        <option value="Mono">Mono</option>
+        <option value="inter">Sans Serif</option>
+        <option value="lora">Serif</option>
+        <option value="inconsolata">Mono</option>
       </select>
     </>
   );

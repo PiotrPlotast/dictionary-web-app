@@ -4,10 +4,9 @@ import SearchBar from "./SearchBar";
 import ActiveWord from "./ActiveWord";
 import WordExplanation from "./WordExplanation";
 
-export default function WordLayout() {
+export default function WordLayout({ font }) {
   const [word, setWord] = useState([]);
   const [searchedWord, setSearchedWord] = useState("hello");
-
   const handlePropsFromSearch = (data) => {
     setSearchedWord(data);
   };
@@ -34,17 +33,22 @@ export default function WordLayout() {
 
   return (
     <div>
-      <SearchBar onProps={handlePropsFromSearch} />
+      <SearchBar onProps={handlePropsFromSearch} font={font} />
       {isLoading ? (
-        <p>Loading...</p>
+        <p className={`font-${font}`}>Loading...</p>
       ) : (
         <>
           <ActiveWord
             activeWord={activeWord}
             spelling={spelling}
             audio={audio}
+            font={font}
           />
-          <WordExplanation word={word} setSearchedWord={setSearchedWord} />
+          <WordExplanation
+            word={word}
+            font={font}
+            setSearchedWord={setSearchedWord}
+          />
         </>
       )}
     </div>

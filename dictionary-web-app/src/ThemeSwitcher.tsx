@@ -27,7 +27,7 @@ function ThemeSwitch() {
       checked={enabled}
       onChange={handleThemeChange}
       className={classNames(
-        enabled ? "bg-gray-400" : "bg-yellow-600",
+        enabled ? "bg-bgColorbg-darkThemeBgColor" : "bg-bgColor",
         "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out"
       )}
     >
@@ -47,7 +47,7 @@ function ThemeSwitch() {
           )}
           aria-hidden="true"
         >
-          <SunIcon className="h-3 w-3 text-gray-400" />
+          <SunIcon className="h-3 w-3 text-wrongInputField" />
         </span>
         <span
           className={classNames(
@@ -58,7 +58,7 @@ function ThemeSwitch() {
           )}
           aria-hidden="true"
         >
-          <SunIcon className="h-3 w-3 text-yellow-600" />
+          <SunIcon className="h-3 w-3 text-secondaryColor" />
         </span>
       </span>
     </Switch>
