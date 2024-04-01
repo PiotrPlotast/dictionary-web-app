@@ -17,5 +17,6 @@ Page live at: https://piotrplotast.github.io/dictionary-web-app/
 - Axios
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://github.com/PiotrPlotast/dictionary-web-app/assets/89207478/1e7361fc-9e4c-473d-acce-3dbc4b8eb24f)
+
 
