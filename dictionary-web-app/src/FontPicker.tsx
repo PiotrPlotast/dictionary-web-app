@@ -3,7 +3,7 @@ export default function FontPicker({ font, setFont }) {
     <>
       <select
         id="font-picker"
-        className={`dark:bg-darkThemeBgColor dark:text-darkThemeTextColor font-${font}`}
+        className={`dark:bg-darkThemeBgColor dark:text-darkThemeTextColor font-${font} font-bold text-bodyS md:text-bodyM`}
         onChange={(e) => {
           setFont(e.target.value);
         }}

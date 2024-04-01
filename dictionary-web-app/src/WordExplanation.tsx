@@ -29,26 +29,28 @@ export default function WordExplanation({
           <div key={index} className="mt-6">
             <div className="flex items-center mb-8">
               <h2
-                className={`text-textColor dark:text-darkThemeTextColor text-bodyM font-bold italic font-${font} `}
+                className={`text-textColor dark:text-darkThemeTextColor text-bodyM font-bold italic font-${font} md:text-headingM`}
               >
                 {meaning.partOfSpeech}
               </h2>
               <div className="ml-4 h-[1px] w-full bg-decorationColor"></div>
             </div>
-            <h3 className={`text-accentColor  font-${font}`}>Meaning</h3>
+            <h3 className={`text-accentColor  font-${font} md:text-headingS`}>
+              Meaning
+            </h3>
             <ul className="mt-4 mb-6 list-disc px-4 marker:text-secondaryColor flex flex-col gap-3">
               {meaning.definitions.map((definition, index) => {
                 return (
                   <li
                     key={index}
-                    className={`text-[0.94rem] dark:text-darkThemeTextColor font-${font}`}
+                    className={`text-[0.94rem] dark:text-darkThemeTextColor font-${font} md:text-bodyM`}
                   >
                     <p className={`dark:text-darkThemeTextColor font-${font}`}>
                       {definition.definition}
                     </p>
                     {definition.example && (
                       <p
-                        className={` text-accentColor dark:text-darkThemeTextColor text-[0.94rem] mt-[0.875rem]  font-${font}`}
+                        className={` text-accentColor dark:text-darkThemeTextColor text-[0.94rem] mt-[0.875rem]  font-${font} md:text-bodyM`}
                       >
                         "{definition.example}"
                       </p>
@@ -58,7 +60,7 @@ export default function WordExplanation({
               })}
             </ul>
             {meaning.synonyms && meaning.synonyms.length > 0 && (
-              <p className={` text-bodyM font-${font}`}>
+              <p className={` text-bodyM font-${font} md:text-headingS`}>
                 <span className={`dark:text-accentColor mr-6 font-${font}`}>
                   Synonyms{" "}
                 </span>
@@ -77,7 +79,9 @@ export default function WordExplanation({
               </p>
             )}
             {meaning.antonyms && meaning.antonyms.length > 0 && (
-              <p className={`dark:text-accentColor text-bodyM font-${font}`}>
+              <p
+                className={`dark:text-accentColor text-bodyM font-${font} md:text-headingS`}
+              >
                 <span className={`mr-6 font-${font}`}>Antonyms </span>
                 {meaning.antonyms?.map((synonym, index) => {
                   return (
@@ -97,7 +101,7 @@ export default function WordExplanation({
         );
       })}
       <div className=" h-[1px] w-full bg-decorationColor mt-8 mb-6"></div>
-      <div className=" pb-20">
+      <div className="pb-20 md:flex md:space-x-6">
         <h3
           className={`underline text-bodyS dark:text-darkThemeTextColor font-${font}`}
         >
