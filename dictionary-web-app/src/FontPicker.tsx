@@ -1,4 +1,10 @@
-export default function FontPicker({ font, setFont }) {
+export default function FontPicker({
+  font,
+  setFont,
+}: {
+  font: string;
+  setFont: (font: string) => void;
+}) {
   return (
     <>
       <select

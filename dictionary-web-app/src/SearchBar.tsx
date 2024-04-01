@@ -1,7 +1,16 @@
 import { debounce } from "lodash";
 import SearchIcon from "./assets/images/icon-search.svg";
-export default function SearchBar({ onProps, font }) {
-  const debouncedOnProps = debounce(onProps, 600);
+export default function SearchBar({
+  onProps,
+  font,
+}: {
+  onProps: unknown;
+  font: string;
+}) {
+  const debouncedOnProps = debounce(
+    onProps as (...args: unknown[]) => unknown,
+    600
+  );
   return (
     <div className="bg-searchBarBgColor dark:bg-darkThemeSearchBarBgColor flex justify-between px-6 py-3 rounded-2xl md:py-4">
       <input

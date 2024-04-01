@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import ActiveWord from "./ActiveWord";
 import WordExplanation from "./WordExplanation";
 
-export default function WordLayout({ font }) {
+export default function WordLayout({ font }: { font: string }) {
   const [word, setWord] = useState([]);
   const [searchedWord, setSearchedWord] = useState("hello");
-  const handlePropsFromSearch = (data) => {
+  const handlePropsFromSearch = (data: SetStateAction<string>) => {
     setSearchedWord(data);
   };
   //get word from api
@@ -25,9 +25,12 @@ export default function WordLayout({ font }) {
       });
   }, [searchedWord]);
 
-  const activeWord = word[0]?.word;
-  const spelling = word[0]?.phonetics[0]?.text;
-  const audio = word[0]?.phonetics.find((phonetic) => phonetic.audio)?.audio;
+  const activeWord = (word[0] as { word: string })?.word;
+  const spelling = (word[0] as { phonetics: { text: string }[] })?.phonetics[0]
+    ?.text;
+  const audio = (word[0] as { phonetics: { audio: string }[] })?.phonetics.find(
+    (phonetic) => phonetic.audio
+  )?.audio;
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,7 +44,7 @@ export default function WordLayout({ font }) {
           <ActiveWord
             activeWord={activeWord}
             spelling={spelling}
-            audio={audio}
+            audio={audio ?? ""}
             font={font}
           />
           <WordExplanation

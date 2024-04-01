@@ -1,7 +1,13 @@
 import Logo from "../src/assets/images/logo.svg";
 import ThemeSwitcher from "./ThemeSwitcher";
 import FontPicker from "./FontPicker";
-export default function Navbar({ font, setFont }) {
+export default function Navbar({
+  font,
+  setFont,
+}: {
+  font: string;
+  setFont: (font: string) => void;
+}) {
   return (
     <nav className="flex justify-between items-center py-4 md:pt-[3.75rem] md:pb-14">
       <a href="#">
