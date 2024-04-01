@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url(./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth\wght.ttf); */
-
 @font-face {
   font-family: "inconsolata";
   src: url(./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth.wght.ttf);

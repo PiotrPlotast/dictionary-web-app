@@ -29,7 +29,7 @@ export default function WordExplanation({
           <div key={index} className="mt-6">
             <div className="flex items-center mb-8">
               <h2
-                className={`text-textColor dark:text-darkThemeTextColor text-bodyM font-bold italic font-${font}`}
+                className={`text-textColor dark:text-darkThemeTextColor text-bodyM font-bold italic font-${font} `}
               >
                 {meaning.partOfSpeech}
               </h2>
