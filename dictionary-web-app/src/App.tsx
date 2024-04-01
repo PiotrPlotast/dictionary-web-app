@@ -5,9 +5,11 @@ import { useState } from "react";
 function App() {
   const [font, setFont] = useState("inter");
   return (
-    <div className="px-6 dark:bg-darkThemeBgColor md:px-10 max-w-3xl mx-auto">
-      <Header font={font} setFont={setFont} />
-      <WordLayout font={font} />
+    <div className="px-6 dark:bg-darkThemeBgColor md:px-10 ">
+      <div className="md:max-w-3xl md:mx-auto">
+        <Header font={font} setFont={setFont} />
+        <WordLayout font={font} />
+      </div>
     </div>
   );
 }
