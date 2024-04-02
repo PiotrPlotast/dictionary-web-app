@@ -4,15 +4,17 @@
 
 @font-face {
   font-family: "inconsolata";
-  src: url(./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth.wght.ttf);
+  src: url(./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth.wght.ttf)
+    format("truetype");
 }
 
 @font-face {
   font-family: "lora";
-  src: url(./assets/fonts/lora/Lora-VariableFont_wght.ttf);
+  src: url(./assets/fonts/lora/Lora-VariableFont_wght.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "inter";
-  src: url(./assets/fonts/inter/Inter-VariableFont_slnt\wght.ttf);
+  src: url(./assets/fonts/inter/Inter-VariableFont_slnt.wght.ttf)
+    format("truetype");
 }

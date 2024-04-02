@@ -50,7 +50,7 @@ export default function WordExplanation({
                     </p>
                     {definition.example && (
                       <p
-                        className={` text-accentColor dark:text-darkThemeTextColor text-[0.94rem] mt-[0.875rem]  font-${font} md:text-bodyM`}
+                        className={` text-accentColor dark:text-darkThemeTextColor text-[0.94rem] mt-[0.875rem] font-${font} md:text-bodyM`}
                       >
                         "{definition.example}"
                       </p>

@@ -6,7 +6,7 @@ import WordExplanation from "./WordExplanation";
 
 export default function WordLayout({ font }: { font: string }) {
   const [word, setWord] = useState([]);
-  const [searchedWord, setSearchedWord] = useState("hello");
+  const [searchedWord, setSearchedWord] = useState("keyboard");
   const handlePropsFromSearch = (data: SetStateAction<string>) => {
     setSearchedWord(data);
   };
