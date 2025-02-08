@@ -5,7 +5,7 @@
 
 
 # Dictionary web app
-Frontend mentor challange. 
+Design taken from Frontend Mentor. 
 
 Page live at: https://piotrplotast.github.io/dictionary-web-app/
 
